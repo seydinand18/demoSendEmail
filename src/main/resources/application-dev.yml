@@ -12,6 +12,6 @@ PROFILES_ACTIVE: dev
 #Email Configuration
 EMAIL_HOST: smtp.gmail.com
 EMAIL_PORT: 587
-EMAIL_ID: "dieuwrigne.dev@gmail.com"
-EMAIL_PASSWORD: "siph nrph kmat emfs"
+EMAIL_ID: "*******@gmail.com"
+EMAIL_PASSWORD: "**** **** **** ****"
 VERIFY_EMAIL_HOST: http://${POSTGRES_SQL_HOST}:${SERVER_PORT}
