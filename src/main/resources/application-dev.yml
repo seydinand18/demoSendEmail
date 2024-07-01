@@ -1,0 +1,17 @@
+#Database Configuration
+POSTGRES_SQL_HOST: localhost
+POSTGRES_SQL_PORT: 5432
+POSTGRES_SQL_DATABASE: sendEmailDemo
+POSTGRES_SQL_USERNAME: seydina
+POSTGRES_SQL_PASSWORD: root
+
+#Server Configuration
+SERVER_PORT: 9897
+PROFILES_ACTIVE: dev
+
+#Email Configuration
+EMAIL_HOST: smtp.gmail.com
+EMAIL_PORT: 587
+EMAIL_ID: "dieuwrigne.dev@gmail.com"
+EMAIL_PASSWORD: "siph nrph kmat emfs"
+VERIFY_EMAIL_HOST: http://${POSTGRES_SQL_HOST}:${SERVER_PORT}

@@ -1,0 +1,10 @@
+#Database Configuration
+POSTGRES_SQL_HOST: localhost
+POSTGRES_SQL_PORT: 5432
+POSTGRES_SQL_DATABASE: sendEmailDemo
+POSTGRES_SQL_USERNAME: seydina
+POSTGRES_SQL_PASSWORD: root
+
+#Server Configuration
+SERVER_PORT: 9896
+PROFILES_ACTIVE: dev
