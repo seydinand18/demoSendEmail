@@ -4,7 +4,7 @@ spring:
     application:
         name: sendEmailDemo
     datasource:
-        url: jdbc:postgresql://${POSTGRES_SQL_HOST}:${POSTGRES_SQL_PORT}/${POSTGRES_SQL_DATABASE}
+        url: jdbc:postgresql://${POSTGRES_SQL_HOST}:${POSTGRES_SQL_PORT}/${POSTGRES_SQL_DATABASE:dafault_db}
         username: ${POSTGRES_SQL_USERNAME}
         password: ${POSTGRES_SQL_PASSWORD}
         driver-class-name: org.postgresql.Driver
@@ -26,8 +26,6 @@ spring:
         default-encoding: UTF-8
         properties:
             mail:
-                mime:
-                    charset: UTF-8
                 smtp:
                     writetimeout: 10000
                     connectiontimeout: 10000
@@ -36,9 +34,17 @@ spring:
                     starttls:
                         enable: true
                         required: true
-
+                mime:
+                    charset: UTF-8
         verify:
             host: ${VERIFY_EMAIL_HOST}
+ui:
+    app:
+        url: ${UI_APP_URL}
+
+application:
+    title: sendEmailDemo
+    version: 1.0
 
 server:
-    port: ${SERVER_PORT:9898}
+    port: ${CONTAINER_PORT:8080}

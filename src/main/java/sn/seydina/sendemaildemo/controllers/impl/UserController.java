@@ -48,4 +48,10 @@ public class UserController implements UserApi {
         List<Confirmation> confirmations = confirmationService.getAllConfirmations();
         return ResponseEntity.ok(confirmations);
     }
+
+    @Override
+    public void delete(Long id) {
+        if (id == null) throw new IllegalArgumentException("Id cannot be null");
+        this.userService.delete(id);
+    }
 }

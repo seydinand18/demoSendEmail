@@ -23,4 +23,7 @@ public interface UserApi {
 
     @GetMapping("/confirmations")
     ResponseEntity<List<Confirmation>> getAllConfirmation();
+
+    @DeleteMapping("/{id}")
+    void delete(Long id);
 }
