@@ -1,0 +1,43 @@
+version: '3.8'  # Assurez-vous d'utiliser la version appropriée de docker-compose
+
+services:
+    send_mail_demo:
+        container_name: send_mail_demo_container
+        build:
+            context: .
+            args:
+                CONTAINER_PORT: ${CONTAINER_PORT}
+        image: send_mail_demo:v1
+        restart: unless-stopped
+        env_file:
+            - ./.env.dev  # Spécifiez directement le chemin relatif du fichier .env
+        expose:
+            - "${CONTAINER_PORT}"
+        ports:
+            - "${HOST_PORT}:${CONTAINER_PORT}"
+        networks:
+            - send_mail_demo_network
+
+    postgres:
+        container_name: postgres_container
+        image: postgres:latest
+        restart: unless-stopped
+        env_file:
+            - ./.env.dev  # Spécifiez directement le chemin relatif du fichier .env
+        environment:
+            POSTGRES_DB: ${POSTGRES_SQL_DATABASE}
+            POSTGRES_USER: ${POSTGRES_SQL_USERNAME}
+            POSTGRES_PASSWORD: ${POSTGRES_SQL_PASSWORD}
+        ports:
+            - "5432:5432"
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+        networks:
+            - send_mail_demo_network
+
+networks:
+    send_mail_demo_network:
+        driver: bridge
+
+volumes:
+    postgres_data:

@@ -49,11 +49,11 @@ public class UserServiceImpl implements UserService {
                 .build();
         confirmationRepository.save(confirmation);
 
-        //emailService.sendSimpleEmailMessage(user.getName(), user.getEmail(), token);
+        emailService.sendSimpleEmailMessage(user.getName(), user.getEmail(), token);
         //emailService.sendMimeMessageWithAttachement(user.getName(), user.getEmail(), token);
         //emailService.sendMimeMessageWithEmbeddedFiles(user.getName(), user.getEmail(), token);
         //emailService.sendHtmlEmail(user.getName(), user.getEmail(), token);
-        emailService.sendHtmlEmailWithEmbeddedFiles(user.getName(), user.getEmail(), token);
+        //emailService.sendHtmlEmailWithEmbeddedFiles(user.getName(), user.getEmail(), token);
 
         return user;
     }
@@ -85,5 +85,13 @@ public class UserServiceImpl implements UserService {
         }
         return userRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("User with id " + id + " not found"));
+    }
+
+    @Override
+    public void delete(Long id) {
+        if (id == null){
+            throw new IllegalArgumentException("Id cannot be null");
+        }
+        userRepository.deleteById(id);
     }
 }

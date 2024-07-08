@@ -6,12 +6,14 @@ POSTGRES_SQL_USERNAME: seydina
 POSTGRES_SQL_PASSWORD: root
 
 #Server Configuration
-SERVER_PORT: 9897
+CONTAINER_PORT: 8080
 PROFILES_ACTIVE: dev
 
 #Email Configuration
 EMAIL_HOST: smtp.gmail.com
 EMAIL_PORT: 587
-EMAIL_ID: "*******@gmail.com"
-EMAIL_PASSWORD: "**** **** **** ****"
-VERIFY_EMAIL_HOST: http://${POSTGRES_SQL_HOST}:${SERVER_PORT}
+EMAIL_ID: "dieuwrigne.dev@gmail.com"
+EMAIL_PASSWORD: "siph nrph kmat emfs"
+VERIFY_EMAIL_HOST: http://${POSTGRES_SQL_HOST}:${CONTAINER_PORT}
+
+UI_APP_URL: localhost:4200
